@@ -14,7 +14,7 @@ terraform {
     workspaces {
       name = "my-vault-cluster-configuration"
     }
-  } 
+  }
 }
 
 provider "vault" {}
