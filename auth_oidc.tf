@@ -19,7 +19,7 @@ resource "vault_jwt_auth_backend_role" "vault_ad_groups" {
   user_claim = "email"
   role_type  = "oidc"
 
-  allowed_redirect_uris = split(",", var.oidc_allowed_redirect_uris)
+  allowed_redirect_uris = var.oidc_allowed_redirect_uris
 
   groups_claim = "groups"
   oidc_scopes  = ["https://graph.microsoft.com/.default", "profile", "email"]
