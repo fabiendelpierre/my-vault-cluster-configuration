@@ -80,3 +80,7 @@ jobs:
           VAULT_ADDR: ${{ secrets.VAULT_ADDR }}
           VAULT_SKIP_VERIFY: true
           VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
+          TF_VAR_oidc_discovery_url: ${{ secrets.TF_VAR_OIDC_DISCOVERY_URL }}
+          TF_VAR_oidc_client_id: ${{ secrets.TF_VAR_OIDC_CLIENT_ID }}
+          TF_VAR_oidc_client_secret: ${{ secrets.TF_VAR_OIDC_CLIENT_SECRET }}
+          TF_VAR_oidc_allowed_redirect_uris: ${{ secrets.TF_VAR_OIDC_ALLOWED_REDIRECT_URIS }}
