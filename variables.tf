@@ -11,7 +11,7 @@ variable "oidc_client_secret" {
 }
 
 variable "oidc_allowed_redirect_uris" {
-  type = string
+  type = list(string)
 }
 
 variable "oidc_group_mappings" {
