@@ -42,5 +42,5 @@ resource "vault_identity_group_alias" "oidc_group_aliases" {
 
   name           = each.value.aad_group_id
   mount_accessor = vault_jwt_auth_backend.vault_ad_groups.accessor
-  canonical_id   = vault_identity_group.groups[each.key].id
+  canonical_id   = vault_identity_group.oidc_groups[each.key].id
 }
