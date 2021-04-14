@@ -15,5 +15,5 @@ variable "oidc_allowed_redirect_uris" {
 }
 
 variable "oidc_group_mappings" {
-  type = string
+  type = map
 }
