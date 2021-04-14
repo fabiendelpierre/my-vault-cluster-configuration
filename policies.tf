@@ -21,7 +21,7 @@ data "vault_policy_document" "vault_admin" {
   }
   rule {
     path         = "sys/policies/acl"
-    capabilities = ["read","list"]
+    capabilities = ["read", "list"]
     description  = "List existing policies"
   }
   rule {
