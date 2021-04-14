@@ -26,3 +26,21 @@ resource "vault_jwt_auth_backend_role" "vault_ad_groups" {
 
   verbose_oidc_logging = true
 }
+
+# Create a Vault group for each provided Azure AD group
+resource "vault_identity_group" "oidc_groups" {
+  for_each = local.oidc_groups_map
+
+  name     = each.key
+  type     = "external"
+  policies = each.value.vault_policies
+}
+
+# Map the Vault groups' canonical IDs to the Azure AD groups' GUIDs
+resource "vault_identity_group_alias" "oidc_group_aliases" {
+  for_each = local.oidc_groups_map
+
+  name           = each.value.aad_group_id
+  mount_accessor = vault_jwt_auth_backend.vault_ad_groups.accessor
+  canonical_id   = vault_identity_group.groups[each.key].id
+}
