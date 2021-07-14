@@ -1,20 +1,20 @@
 terraform {
-  required_version = "~> 0.14"
+  required_version = "~> 1.0"
 
   required_providers {
     vault = {
       source  = "hashicorp/vault"
-      version = "~> 2.17"
+      version = "~> 2.21"
     }
   }
 
-  backend "remote" {
-    organization = "fabiend"
+  # backend "remote" {
+  #   organization = "fabiend"
 
-    workspaces {
-      name = "my-vault-cluster-configuration"
-    }
-  }
+  #   workspaces {
+  #     name = "my-vault-cluster-configuration"
+  #   }
+  # }
 }
 
 provider "vault" {}
